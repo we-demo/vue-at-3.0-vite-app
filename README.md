@@ -1,6 +1,6 @@
-# Demo: Vue 3 + Vite + Vue-At
+# Demo: Vue 2 + Vite + Vue-At
 
-for Vue2, read [this one](https://github.com/we-demo/vue-at-vite-app/tree/vue2) instead.
+for Vue3, read [this one](https://github.com/we-demo/vue-at-vite-app/tree/vue3) instead.
 
 This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 

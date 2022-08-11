@@ -1,10 +1,10 @@
 <template>
-  <!--
-    vue3 migration.2
-    fix: [Vue warn]: (deprecation COMPONENT_V_MODEL) v-model usage on component has changed in Vue 3. Component that expects to work with v-model should now use the "modelValue" prop and emit the "update:modelValue" event. You can update the usage and then opt-in to Vue 3 behavior on a per-component basis with `compatConfig: { COMPONENT_V_MODEL: false }`.
-    Details: https://v3-migration.vuejs.org/breaking-changes/v-model.html
-  -->
-  <at :members="members" name-key="name" v-model:value="html">
+<!--
+  fix vue2: [plugin:vite:vue2] Component template should contain exactly one root element.
+  wrapping into a single <div>
+-->
+<div id="app">
+  <at :members="members" name-key="name" v-model="html">
     <!-- custom: same as default slot -->
     <!-- <template #item="s">
       <span v-text="s.item"></span>
@@ -16,16 +16,10 @@
       <span v-text="s.item.name" />
     </template>
 
-    <!--
-      // vue3 migration.4
-      fix: [Vue warn]: (deprecation ATTR_ENUMERATED_COERCION) Enumerated attribute "contenteditable" with v-bind value `` will render the value as-is instead of coercing the value to "true" in Vue 3. Always use explicit "true" or "false" values for enumerated attributes. If the usage is intended, you can disable the compat behavior and suppress this warning with:
-        configureCompat({ ATTR_ENUMERATED_COERCION: false })
-      Details: https://v3-migration.vuejs.org/breaking-changes/attribute-coercion.html
-    -->
     <div class="editor" :contenteditable="true" />
   </at>
 
-  <at :members="members" name-key="name" v-model:value="html2">
+  <at :members="members" name-key="name" v-model="html2">
     <template #embeddedItem="s">
       <span><span class="tag"><img class="avatar" :src="s.current.avatar">{{ s.current.name }}</span></span>
     </template>
@@ -41,7 +35,7 @@
 
   <br>
 
-  <at-ta :members="members" name-key="name" v-model:value="text">
+  <at-ta :members="members" name-key="name" v-model="text">
     <!-- custom: with avatars -->
     <template #item="s">
       <img :src="s.item.avatar">
@@ -51,17 +45,17 @@
     <textarea class="editor" />
   </at-ta>
 
-  <!-- <at-ta :members="members" name-key="name">
-    <!- custom: with avatars ->
+  <at-ta :members="members" name-key="name">
+    <!-- custom: with avatars -->
     <template #item="s">
       <img :src="s.item.avatar">
       <span v-text="s.item.name"></span>
     </template>
 
-    <v-textarea class="vuetify-editor" v-model:value="text2"></v-textarea>
+    <v-textarea class="vuetify-editor" v-model="text2"></v-textarea>
   </at-ta>
 
-  <br> -->
+  <br>
 
   <at-ta :members="members" name-key="name">
     <!-- custom: with avatars -->
@@ -72,6 +66,7 @@
 
     <el-input type="textarea" v-model="text3" class="element-editor" />
   </at-ta>
+</div>
 </template>
 
 <script>

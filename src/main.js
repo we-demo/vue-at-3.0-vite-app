@@ -1,8 +1,14 @@
-import 'element-plus/dist/index.css'
-import ElementPlus from 'element-plus'
-import { createApp } from 'vue'
+import 'element-ui/lib/theme-chalk/index.css'
+import 'vuetify/dist/vuetify.min.css'
+import Vuetify from 'vuetify'
+import ElementUI from 'element-ui'
+import Vue from 'vue'
 import App from './App.vue'
 
-let app = createApp(App)
-app.use(ElementPlus)
-app.mount('#app')
+Vue.use(Vuetify)
+Vue.use(ElementUI)
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+})
